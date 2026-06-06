@@ -1,0 +1,11 @@
+# Large source files
+Someli's_Portfolio(f).pdf
+Someli's_Portfolio(f).docx
+
+# Extracted page images (not used by the website)
+page_*.png
+WhatsApp Image 2026-06-06 at 5.24.40 PM.jpeg
+
+# Temporary scripts & extracted text data
+*.py
+*.txt
