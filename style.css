@@ -1537,14 +1537,18 @@ a {
     }
     
     .nav-link {
-        padding: 10px 18px;
-        font-size: 15px;
+        padding: 8px 12px;
+        font-size: 14px;
         font-weight: 700;
         border-radius: 20px;
     }
     
     .btn-nav-cta {
-        display: none; /* Hide the CTA inside navbar to prevent wrapping */
+        display: inline-flex; /* Show on mobile */
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        border-radius: 16px;
     }
     
     .thematic-blockquote {
