@@ -248,6 +248,29 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(styleSheet);
 
+    // 7. CARD SPOTLIGHT GLOW EFFECT (Vercel-style mouse spotlight)
+    const cards = document.querySelectorAll('.stat-card, .project-card, .edu-card, .playground-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // 8. SCROLL PROGRESS INDICATOR
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+        if (scrollBar) {
+            scrollBar.style.width = scrolled + '%';
+        }
+    });
+
     // Set Initial Active Section after all functions are initialized
     showSection('home');
 });

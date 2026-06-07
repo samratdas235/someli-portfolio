@@ -1655,3 +1655,113 @@ a {
     }
 }
 
+/* ==========================================================================
+   MINIMALIST ARTIFACTS & SMOOTH UI MOTIONS
+   ========================================================================== */
+
+/* 1. Scroll Progress Bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 9999;
+    pointer-events: none;
+}
+.scroll-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+    box-shadow: 0 0 10px var(--color-primary);
+    transition: width 0.1s ease-out;
+}
+
+/* 2. Interactive Spotlight/Mouse Glow Effect for Cards */
+.stat-card, .project-card, .edu-card, .playground-card {
+    position: relative;
+    overflow: hidden; /* Keep glow bound inside the rounded corners */
+}
+
+.stat-card::before, .project-card::before, .edu-card::before, .playground-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(0, 230, 118, 0.08),
+        transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.stat-card:hover::before, .project-card:hover::before, .edu-card:hover::before, .playground-card:hover::before {
+    opacity: 1;
+}
+
+/* Make sure card elements stay above mouse glare */
+.stat-card *, .project-card *, .edu-card *, .playground-card * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Make sure accordions keep their click capabilities and relative flows */
+.inside-brain-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* 3. Sliding Active Link Highlight Animations */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 0 6px var(--color-primary);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-item.active .nav-link::after {
+    transform: scaleX(1);
+}
+
+/* 4. Elegant Micro-scaling transitions */
+.social-icon {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.timeline-item {
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(4px);
+}
+
