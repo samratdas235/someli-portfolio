@@ -56,13 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Bind Sidebar "View My Resume" button to switch to About
-    if (resumeBtn) {
-        resumeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            showSection('about');
-        });
-    }
+
 
     // Set Initial Active Section (moved to bottom of script)
 
