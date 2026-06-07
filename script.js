@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Set Initial Active Section
-    showSection('home');
+    // Set Initial Active Section (moved to bottom of script)
 
 
     // 2. GLOBAL CONTACT MODAL LOGIC
@@ -254,4 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(styleSheet);
+
+    // Set Initial Active Section after all functions are initialized
+    showSection('home');
 });
