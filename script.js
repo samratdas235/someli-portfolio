@@ -176,11 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let statsAnimated = false;
 
     const countUp = (element) => {
+        const start = parseFloat(element.getAttribute('data-target-start')) || 0;
         const target = parseFloat(element.getAttribute('data-target'));
         const isDecimal = target % 1 !== 0;
         const speed = 1200; // duration in ms
-        const increment = target / (speed / 16); // 60fps frame rate increment
-        let current = 0;
+        const increment = (target - start) / (speed / 16); // 60fps frame rate increment
+        let current = start;
 
         const updateNumber = () => {
             current += increment;

@@ -405,6 +405,15 @@ a {
     line-height: 1;
 }
 
+.stat-prefix-inline {
+    font-family: var(--font-heading);
+    font-size: 58px;
+    font-weight: 800;
+    color: var(--color-text-white);
+    display: inline-block;
+    line-height: 1;
+}
+
 .stat-suffix {
     font-family: var(--font-heading);
     font-size: 36px;
