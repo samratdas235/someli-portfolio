@@ -4,6 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Check if we are on the main page (index.html) vs a dedicated project subpage
+    const isMainPage = document.getElementById('home') !== null;
+
     const sections = document.querySelectorAll('.content-section');
     const navItems = document.querySelectorAll('.nav-item');
     const resumeBtn = document.getElementById('btn-view-cv');
@@ -14,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. PAGE TABS SWITCHING LOGIC
     function showSection(sectionId) {
+        if (!isMainPage) return;
         // Hide all sections and remove active classes
         sections.forEach(sec => {
             sec.classList.remove('active');
@@ -46,13 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Bind Navbar Menu Clicks
+    // Bind Navbar Menu Clicks (Only prevent default and switch sections dynamically on the main page)
     navItems.forEach(item => {
         const link = item.querySelector('a');
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const sectionId = item.getAttribute('data-section');
-            showSection(sectionId);
+            if (isMainPage) {
+                e.preventDefault();
+                const sectionId = item.getAttribute('data-section');
+                showSection(sectionId);
+            }
         });
     });
 
@@ -271,13 +277,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Set Initial Active Section after all functions are initialized
-    let initialSection = 'home';
-    if (window.location.hash) {
-        const hash = window.location.hash.replace('#', '');
-        if (['home', 'about', 'projects'].includes(hash)) {
-            initialSection = hash;
+    // Set Initial Active Section after all functions are initialized (Main page only)
+    if (isMainPage) {
+        let initialSection = 'home';
+        if (window.location.hash) {
+            const hash = window.location.hash.replace('#', '');
+            if (['home', 'about', 'projects'].includes(hash)) {
+                initialSection = hash;
+            }
         }
+        showSection(initialSection);
     }
-    showSection(initialSection);
 });
