@@ -14,8 +14,8 @@
     --color-text-gray: #a0a0a5;
     --color-text-muted: #5e6066;
     
-    --font-heading: 'Bodoni Moda', 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, serif;
-    --font-body: 'Geist', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Montserrat', 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     
     --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     --transition-fast: all 0.2s ease-in-out;
