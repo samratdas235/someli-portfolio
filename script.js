@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(styleSheet);
 
     // 7. CARD SPOTLIGHT GLOW EFFECT (Vercel-style mouse spotlight)
-    const cards = document.querySelectorAll('.stat-card, .project-card, .edu-card, .playground-card');
+    const cards = document.querySelectorAll('.stat-card, .project-card, .edu-card, .playground-card, .feature-card, .contact-detail-card, .modal-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -272,5 +272,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Set Initial Active Section after all functions are initialized
-    showSection('home');
+    let initialSection = 'home';
+    if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        if (['home', 'about', 'projects'].includes(hash)) {
+            initialSection = hash;
+        }
+    }
+    showSection(initialSection);
 });
