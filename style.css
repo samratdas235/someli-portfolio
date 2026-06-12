@@ -261,14 +261,38 @@ a {
 }
 
 .btn-project-link {
-    margin-top: 16px;
+    margin-top: 20px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-size: 15px;
     font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 20px;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.25s ease, gap 0.25s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.btn-project-link:hover {
+    color: #ffffff;
+    gap: 12px;
+    background: none;
+    border: none;
+    transform: none;
+}
+
+.btn-project-link .btn-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+    stroke: currentColor;
+}
+
+.btn-project-link:hover .btn-icon {
+    transform: translateX(4px);
 }
 
 .btn-icon {
